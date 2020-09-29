@@ -479,12 +479,11 @@ from sklearn.ensemble import RandomForestClassifier
  
 # this part needs to substute in best tuned estimators
 estimators = [('rf', RandomForestClassifier(n_estimators=175, ccp_alpha=0.01, criterion='gini')),
-               #('lr', LogisticRegression(solver='saga',penalty='l1',l1_ratio=.7,C=.001)),
-               #('svm', SVC(C=10,kernel='linear',shrinking=True, probability=True)),
-               #('gb', GradientBoostingClassifier(n_estimators=175, learning_rate=0.075, max_features=5, max_depth=1)),
+               ('lr', LogisticRegression(solver='saga',penalty='l1',l1_ratio=.7,C=.001)),
+               ('svm', SVC(C=10,kernel='linear',shrinking=True, probability=True)),
+               ('gb', GradientBoostingClassifier(n_estimators=175, learning_rate=0.075, max_features=5, max_depth=1)),
                #('gnBayes', GaussianNB()),
                #('knn', KNeighborsClassifier(metric='minkowski', algorithm='ball_tree', n_neighbors=48, p=1, n_jobs=-1)),
-               #()
                ]
  
 stacking_clf = StackingClassifier(estimators=estimators,
